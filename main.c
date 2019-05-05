@@ -1,29 +1,28 @@
 #include <stdio.h>
 
 void zeroInt(int *x);
-void swap(int *a, int *b);
+void mean(int *a, int *b, int *c);
 
 int main(){
-    int x = 100, y = 3, *a, *b, c, d;
+    int x = 10, y = 3, z = 7, *a, *b, *c, d, e, f;
     
     a = &x;
     b = &y;
-    c = x;
-    d = y;
-    swap(a, b);
-    printf("\n%d & %d swapped is %d & %d\n", c, d, x, y);
+    c = &z;
+    d = x;
+    e = y;
+    f = z;
+    mean(a, b, c);  
+    printf("\nMean of %d, %d, %d is %d. The other two variables zero'd are %d & %d\n", d, e, f, x, y, z);
     
     return 0;
 }
 
-void zeroInt(int *x){
-    *x = 0; 
-}
-void swap(int *a, int *b){
-    int x, y;
+void mean(int *a, int *b, int *c){
+    int mean;
     
-    x = *a;
-    y = *b;
-    *a = y;
-    *b = x;
+    mean = (*a + *b + *c)/3;
+    *a = mean;
+    *b = 0;
+    *c = 0;
 }
